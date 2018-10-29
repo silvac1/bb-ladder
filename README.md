@@ -20,6 +20,8 @@ Tournaments are the result of games played in a ladder format
   player_id, position_id
 * Team
   name, location
+* TeamPlayer (join)
+  team_id, player_id
 * Game
   home_team_id, away_team_id, tournament_id, occurs_at, winner_id
 * GamePlayerPosition (join)

@@ -1,0 +1,13 @@
+<ul>
+  <li><%= link_to "Dashboard", "/" %></li>
+
+  <% if admin_signed_in? %>
+    <li>
+    <%= link_to('Sign out', destroy_admin_session_path, method: :delete) %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Sign in', new_amin_session_path)  %>
+    </li>
+  <% end %>
+</ul>
