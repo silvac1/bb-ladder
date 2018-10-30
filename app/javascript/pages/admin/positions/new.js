@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import fetch from '../../../fetch'
+import api from '../../../modules/api'
+
+import TextInput from '../../../components/text-input'
 
 class AdminPositionsNew extends React.Component {
   state = {
@@ -17,30 +19,21 @@ class AdminPositionsNew extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { name } = this.state
-    const headers = new Headers()
-    headers.append('X-Requested-With', 'XMLHttpRequest')
-    headers.append('X-CSRF-TOKEN', document.getElementById("authenticity-token").value)
-    headers.append('Content-Type', 'application/json')
+    const token = document.getElementById("authenticity-token").value
 
-    fetch("//localhost:3000/api/v1/admin/positions", {
-      method: 'POST',
-      headers,
-      credentials: 'same-origin',
-      body: JSON.stringify({
-        position: { name }
-      })
+    api("//localhost:3000/api/v1/admin/positions", "post", token, {
+      position: { name }
+    }).then(json => {
+      if(json.errors) {
+        this.setState({
+          errors: json.errors
+        })
+        return
+      }
+
+      this.props.history.push("/admin/positions")
     })
-      .then(response => response.json())
-      .then(json => {
-        if(json.errors) {
-          this.setState({
-            errors: json.errors
-          })
-          return
-        }
 
-        this.props.history.push("/admin/positions")
-      })
   }
 
   render() {
@@ -48,25 +41,13 @@ class AdminPositionsNew extends React.Component {
     return <div>
       <h1>Create new position</h1>
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => this.handleChange(e, 'name')}
-            style={
-              errors && errors.name
-                ? { border: '1px solid red' }
-                : {}
-            }
-          />
-          {
-            errors && errors.name
-              ? <div className="error">Name { errors.name.join(", ")}</div>
-              : null
-          }
-        </div>
-
+        <TextInput
+          attr="name"
+          value={name}
+          label="Name"
+          errors={errors.name}
+          handleChange={(e) => this.handleChange(e, 'name')}
+        />
         <div>
           <button onClick={this.handleSubmit}>Save position</button>
         </div>
