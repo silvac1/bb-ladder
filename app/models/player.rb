@@ -1,6 +1,6 @@
 class Player < ApplicationRecord
-  belongs_to :position
-  belongs_to :team
+  belongs_to :position, required: false
+  belongs_to :team, required: false
 
   validates :name, presence: true
   validates :height, presence: true

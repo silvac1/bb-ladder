@@ -21,7 +21,6 @@ class AdminPositionsIndex extends React.Component {
   render() {
     const { positions } = this.state
     return <div>
-
       <h1>Admins - Positions - List</h1>
       <Link to={`/admin/positions/new`}>Create position</Link>
       <table>
