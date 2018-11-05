@@ -13,8 +13,12 @@ Rails.application.routes.draw do
       namespace :admin do
         resources :positions, only: [:create, :update, :destroy]
         resources :players, only: [:create, :update, :destroy]
+        resources :teams, only: [:create, :update, :destroy]
       end
+      resources :positions, only: [:index, :show]
       resources :players, only: [:index, :show]
+      resources :available_players, only: [:index]
+      resources :teams, only: [:index, :show]
     end
   end
 end

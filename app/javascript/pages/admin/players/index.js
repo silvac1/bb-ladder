@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../../modules/api'
+import AdminNavbar from '../../../components/admin-navbar'
 
 class AdminPlayersIndex extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class AdminPlayersIndex extends React.Component {
   render() {
     const { players } = this.state
     return <div>
+      <AdminNavbar />
       <h1>Admins - Players - List</h1>
       <Link to={`/admin/players/new`}>Create Player</Link>
       <table>

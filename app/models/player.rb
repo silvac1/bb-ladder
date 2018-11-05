@@ -4,4 +4,6 @@ class Player < ApplicationRecord
 
   validates :name, presence: true
   validates :height, presence: true
+
+  scope :available, -> { where(team_id: nil) }
 end

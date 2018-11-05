@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import api from '../../../modules/api'
 
 import TextInput from '../../../components/text-input'
+import AdminNavbar from '../../../components/admin-navbar'
 
 class AdminPlayersEdit extends React.Component {
   state = {
@@ -57,6 +58,7 @@ class AdminPlayersEdit extends React.Component {
   render() {
     const { name, height, errors } = this.state
     return <div>
+      <AdminNavbar />
       <h1>Edit player ({this.props.match.params.id})</h1>
       <form onSubmit={this.handleSubmit}>
 

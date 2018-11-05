@@ -11,6 +11,10 @@ import AdminPlayersIndex from './pages/admin/players/index'
 import AdminPlayersNew from './pages/admin/players/new'
 import AdminPlayersEdit from './pages/admin/players/edit'
 
+import AdminTeamsIndex from './pages/admin/teams/index'
+import AdminTeamsNew from './pages/admin/teams/new'
+import AdminTeamsEdit from './pages/admin/teams/edit'
+
 class Router extends React.Component {
   componentDidMount() {
     console.log("App component is mounted!")
@@ -27,6 +31,10 @@ class Router extends React.Component {
       <Route exact path={`/admin/players`} component={AdminPlayersIndex} />
       <Route exact path={`/admin/players/new`} component={AdminPlayersNew} />
       <Route exact path={`/admin/players/:id/edit`} component={AdminPlayersEdit} />
+
+      <Route exact path={`/admin/teams`} component={AdminTeamsIndex} />
+      <Route exact path={`/admin/teams/new`} component={AdminTeamsNew} />
+      <Route exact path={`/admin/teams/:id/edit`} component={AdminTeamsEdit} />
     </Switch>
   }
 }
