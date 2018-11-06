@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <%= yield %>
+    </div>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>

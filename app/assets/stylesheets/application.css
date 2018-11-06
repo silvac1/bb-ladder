@@ -14,13 +14,54 @@
  *= require_self
  */
 
+ * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+ }
+
 html, body {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100%;
 }
-#react-root {
+
+body:after {
+  content: "";
+  opacity: 0.8;
+
+  background-image:url(image2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -150px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#wrapper {
+   border: 1px solid black;
    width: 800px;
-   margin: 0 auto;
+   margin: 2em auto;
+   padding: 2em;
    position: relative;
+   background: white;
+   border-radius: 6px;
  }
+
+
+.log-in, .register, .forgot-password {
+  width: 200px;
+  margin: 0 auto;
+}
+
+
+input[type=submit]{
+  background: #e79257;
+  border: 1px solid #d4794f;
+  padding: 0.5em 2em;
+  margin: 1em 0;
+  border-radius: 3px;
+}
