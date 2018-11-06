@@ -21,7 +21,7 @@ class AdminPositionsNew extends React.Component {
     const { name } = this.state
     const token = document.getElementById("authenticity-token").value
 
-    api("//localhost:3000/api/v1/admin/positions", "post", token, {
+    api("api/v1/admin/positions", "post", token, {
       position: { name }
     }).then(json => {
       if(json.errors) {

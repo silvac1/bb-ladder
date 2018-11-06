@@ -15,14 +15,14 @@ class AdminTeamsEdit extends React.Component {
   }
 
   componentDidMount() {
-    api(`//localhost:3000/api/v1/teams/${this.props.match.params.id}`, 'get')
+    api(`api/v1/teams/${this.props.match.params.id}`, 'get')
       .then(json => this.setState({
         name: json.name,
         location: json.location,
         teamPlayers: json.players
       }))
 
-    api("//localhost:3000/api/v1/available_players", "get")
+    api("api/v1/available_players", "get")
       .then(availablePlayers => this.setState({
         availablePlayers
       }))
@@ -42,7 +42,7 @@ class AdminTeamsEdit extends React.Component {
     headers.append('X-CSRF-TOKEN', document.getElementById("authenticity-token").value)
     headers.append('Content-Type', 'application/json')
 
-    fetch(`//localhost:3000/api/v1/admin/teams/${this.props.match.params.id}`, {
+    fetch(`api/v1/admin/teams/${this.props.match.params.id}`, {
       method: 'PUT',
       headers,
       credentials: 'same-origin',

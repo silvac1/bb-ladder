@@ -9,13 +9,13 @@ class AdminTeamsIndex extends React.Component {
   }
 
   componentDidMount() {
-    api("//localhost:3000/api/v1/teams.json", 'get')
+    api("api/v1/teams.json", 'get')
       .then(teams => this.setState({ teams }))
   }
 
   delete = (id) => {
     const token = document.getElementById("authenticity-token").value
-    api(`//localhost:3000/api/v1/admin/teams/${id}`, 'delete', token, {})
+    api(`api/v1/admin/teams/${id}`, 'delete', token, {})
       .then(teams => this.setState({ teams }))
   }
 

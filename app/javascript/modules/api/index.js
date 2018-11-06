@@ -17,5 +17,5 @@ export default function Api(path, method, token, data) {
     obj.body = JSON.stringify(data)
   }
 
-  return fetch(path, obj).then(response => response.json())
+  return fetch(`//${window.location.host}/${path}`, obj).then(response => response.json())
 }

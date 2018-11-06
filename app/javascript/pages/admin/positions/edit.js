@@ -12,7 +12,7 @@ class AdminPositionsEdit extends React.Component {
   }
 
   componentDidMount() {
-    api(`//localhost:3000/api/v1/positions/${this.props.match.params.id}`, 'get')
+    api(`api/v1/positions/${this.props.match.params.id}`, 'get')
       .then(json => this.setState({
         name: json.name
       }))
@@ -32,7 +32,7 @@ class AdminPositionsEdit extends React.Component {
     headers.append('X-CSRF-TOKEN', document.getElementById("authenticity-token").value)
     headers.append('Content-Type', 'application/json')
 
-    fetch(`//localhost:3000/api/v1/admin/positions/${this.props.match.params.id}`, {
+    fetch(`api/v1/admin/positions/${this.props.match.params.id}`, {
       method: 'PUT',
       headers,
       credentials: 'same-origin',

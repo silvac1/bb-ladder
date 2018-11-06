@@ -9,13 +9,13 @@ class AdminPlayersIndex extends React.Component {
   }
 
   componentDidMount() {
-    api("//localhost:3000/api/v1/players.json", 'get')
+    api("api/v1/players.json", 'get')
       .then(players => this.setState({ players }))
   }
 
   delete = (id) => {
     const token = document.getElementById("authenticity-token").value
-    api(`//localhost:3000/api/v1/admin/players/${id}`, 'delete', token, {})
+    api(`api/v1/admin/players/${id}`, 'delete', token, {})
       .then(players => this.setState({ players }))
   }
 

@@ -8,13 +8,13 @@ class AdminPositionsIndex extends React.Component {
   }
 
   componentDidMount() {
-    api("//localhost:3000/api/v1/positions.json", 'get')
+    api("api/v1/positions.json", 'get')
       .then(positions => this.setState({ positions }))
   }
 
   delete = (id) => {
     const token = document.getElementById("authenticity-token").value
-    api(`//localhost:3000/api/v1/admin/positions/${id}`, 'delete', token, {})
+    api(`api/v1/admin/positions/${id}`, 'delete', token, {})
       .then(positions => this.setState({ positions }))
   }
 

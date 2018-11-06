@@ -14,7 +14,7 @@ class AdminTeamsNew extends React.Component {
   }
 
   componentDidMount() {
-    api("//localhost:3000/api/v1/available_players", "get")
+    api("api/v1/available_players", "get")
       .then(availablePlayers => this.setState({
         availablePlayers
       }))
@@ -31,7 +31,7 @@ class AdminTeamsNew extends React.Component {
     const { name, location, teamPlayers } = this.state
     const token = document.getElementById("authenticity-token").value
 
-    api("//localhost:3000/api/v1/admin/teams", "post", token, {
+    api("api/v1/admin/teams", "post", token, {
       team: { name, location, player_ids: teamPlayers.map(player => player.id) }
     }).then(json => {
       if(json.errors) {

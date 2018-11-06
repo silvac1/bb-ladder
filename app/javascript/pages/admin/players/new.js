@@ -24,7 +24,7 @@ class AdminPlayersNew extends React.Component {
     const { name, height } = this.state
     const token = document.getElementById("authenticity-token").value
 
-    api("//localhost:3000/api/v1/admin/players", "post", token, {
+    api("api/v1/admin/players", "post", token, {
       player: { name, height }
     }).then(json => {
       if(json.errors) {
