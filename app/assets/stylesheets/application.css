@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#react-root {
+   width: 800px;
+   margin: 0 auto;
+   position: relative;
+ }
