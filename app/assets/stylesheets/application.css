@@ -29,7 +29,7 @@ body:after {
   content: "";
   opacity: 0.8;
 
-  background-image:url(image2.jpg);
+  background-image:asset-url(image2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 -150px;
