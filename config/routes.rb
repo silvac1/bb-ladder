@@ -21,4 +21,6 @@ Rails.application.routes.draw do
       resources :teams, only: [:index, :show]
     end
   end
+
+  root to: "landing#index"
 end
